@@ -7,6 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl x-auto sm:px-6 lg:px-8">
+            <livewire:ticket.create-ticket />
+            
             <livewire:ticket.ticket-list />
         </div>
     </div>

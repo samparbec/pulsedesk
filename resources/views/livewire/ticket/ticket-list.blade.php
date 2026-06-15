@@ -1,7 +1,9 @@
 <div class="p-6 bg-white border-b border-gray-200 rounded-lg shadow-sm">
     <div class="flex items-center justify-between mb-4">
         <h2 class="text-xl font-semibold text-gray-800">Tickets de Soporte</h2>
-        <button class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+       <button x-data 
+                x-on:click="$dispatch('open-create-ticket-modal')" 
+                class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition shadow-sm">
             Nuevo Ticket
         </button>
     </div>

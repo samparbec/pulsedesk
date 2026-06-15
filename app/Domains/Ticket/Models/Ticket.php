@@ -10,7 +10,7 @@ class Ticket extends Model
 {
     use BelongsToCompany;
 
-    protected $fillable = ['subject', 'description', 'status', 'priority', 'assigned_to'];
+    protected $fillable = ['subject', 'description', 'status', 'priority', 'user_id', 'assigned_to'];
 
     // Relación: Quién creó el ticket
     public function user()
