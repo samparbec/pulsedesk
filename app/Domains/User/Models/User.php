@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Company::class);
     }
+
+    protected static function newFactory()
+    {
+        return UserFactory::new();
+    }
 }
