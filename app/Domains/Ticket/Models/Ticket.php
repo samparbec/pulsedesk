@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Domains\Ticket\Models;
+namespace App\Domains\Ticket\Models;
 
 use App\Domains\User\Models\User;
 use App\Shared\Traits\BelongsToCompany;
