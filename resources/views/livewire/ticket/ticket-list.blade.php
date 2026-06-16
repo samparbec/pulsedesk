@@ -29,11 +29,11 @@
                 @forelse($tickets as $ticket)
                     <tr class="hover:bg-indigo-50/30 transition-colors duration-150 group">
                         
-                        <td class="px-6 py-4.5">
+                       <td class="px-6 py-4.5">
                             <div class="flex flex-col">
-                                <span class="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-150">
+                                <a href="{{ route('tickets.show', $ticket) }}" wire:navigate class="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-150 cursor-pointer">
                                     {{ $ticket->subject }}
-                                </span>
+                                </a>
                                 <span class="text-xs text-gray-400 max-w-md truncate mt-0.5">
                                     {{ Str::limit($ticket->description, 60) }}
                                 </span>

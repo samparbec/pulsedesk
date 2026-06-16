@@ -18,13 +18,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Perfil de usuario
     Route::view('profile', 'profile')->name('profile');
 
-    /* 
-    |--------------------------------------------------------------------------
-    | Futuras rutas de Tickets
-    |--------------------------------------------------------------------------
-    | Aquí meteremos la ruta para ver el detalle de un ticket, por ejemplo:
-    | Route::get('tickets/{ticket}', ShowTicket::class)->name('tickets.show');
-    */
+    Route::get('tickets/{ticket}', \App\Livewire\Ticket\ShowTicket::class)->name('tickets.show');
+
 });
 
 require __DIR__.'/auth.php';
