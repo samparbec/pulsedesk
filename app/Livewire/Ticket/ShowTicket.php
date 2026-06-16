@@ -53,6 +53,6 @@ class ShowTicket extends Component
 
     public function render()
     {        
-        return view('livewire.ticket.show-ticket')->layout('layouts.app');;
+        return view('livewire.ticket.show-ticket')->layout('layouts.app');
     }
 }

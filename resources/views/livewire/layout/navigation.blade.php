@@ -42,6 +42,10 @@ new class extends Component
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate class="font-semibold text-sm tracking-wide text-slate-300 hover:text-white border-indigo-400">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('team')" :active="request()->routeIs('team')" wire:navigate class="font-semibold text-sm tracking-wide text-slate-300 hover:text-white border-indigo-400">
+                        {{ __('Mi Equipo') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -104,6 +108,9 @@ new class extends Component
         <div class="pt-2 pb-3 space-y-1 bg-slate-900 border-t border-slate-800">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate class="text-slate-300">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('team')" :active="request()->routeIs('team')" wire:navigate class="text-slate-300">
+                {{ __('Mi Equipo') }}
             </x-responsive-nav-link>
         </div>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\User\ManageTeam;
 use Illuminate\Support\Facades\Route;
 
 // Si un usuario ya está logueado e intenta entrar a la raíz, el middleware 'guest' lo manda al dashboard.
@@ -19,6 +20,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('profile', 'profile')->name('profile');
 
     Route::get('tickets/{ticket}', \App\Livewire\Ticket\ShowTicket::class)->name('tickets.show');
+
+    Route::get('team' ,ManageTeam::class)->name('team');
 
 });
 
