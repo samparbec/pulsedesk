@@ -65,5 +65,9 @@ class DatabaseSeeder extends Seeder
             'status' => TicketStatus::Open->value,
             'priority' => TicketPriority::Medium->value,
         ]);
+
+        $this->call([
+            RoleSeeder::class,
+        ]);
     }
 }

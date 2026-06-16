@@ -9,6 +9,8 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Domains\User\Models\Role;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -58,5 +60,26 @@ class User extends Authenticatable
     protected static function newFactory()
     {
         return UserFactory::new();
+    }
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    /**
+     * Comprueba si el usuario tiene un rol específico (Útil para las rutas)
+     */
+    public function hasRole(string $roleName): bool
+    {
+        return $this->roles->contains('name', $roleName);
+    }
+
+    /**
+     * Comprueba si tiene cualquiera de los roles listados
+     */
+    public function hasAnyRole(array $roles): bool
+    {
+        return $this->roles->intersect(Role::whereIn('name', $roles)->get())->string();
     }
 }
