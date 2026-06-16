@@ -20,13 +20,22 @@ class TicketList extends Component
 
     public function render()
     {
+        // 📊 CALCULADORA DE WIDGETS (Aislados por Tenant automáticamente gracias al Scope)
+        // Hacemos las queries rápidas contando por estado
+        $metrics = [
+            'open'        => Ticket::where('status', 'open')->count(),
+            'in_progress' => Ticket::where('status', 'in_progress')->count(),
+            'resolved'    => Ticket::where('status', 'resolved')->count(),
+            'total'       => Ticket::count(),
+        ];
         // El Global Scope del Trait 'BelongsToCompany' se encarga de filtrar por ti entre bambalinas
         $tickets = Ticket::with(['user', 'assignee'])
             ->latest()
             ->paginate(10);
 
         return view('livewire.ticket.ticket-list', [
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'metrics' => $metrics
         ]);
     }
 }
